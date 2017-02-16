@@ -1,0 +1,14 @@
+machine:
+  java:
+    version: oraclejdk8
+
+  services:
+    - docker
+
+dependencies:
+  override:
+    - ./gradlew --stacktrace --info --console=plain version
+
+test:
+  override:
+    - echo "Nothing to test"
