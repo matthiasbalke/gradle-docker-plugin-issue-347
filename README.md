@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/matthiasbalke/gradle-docker-plugin-issue-347/tree/master.svg?style=shield)](https://circleci.com/gh/matthiasbalke/gradle-docker-plugin-issue-347/tree/master)
+
 # gradle-docker-plugin-issue-347
 
 this repo demonstrates how to reproduce issue https://github.com/bmuschko/gradle-docker-plugin/issues/347
