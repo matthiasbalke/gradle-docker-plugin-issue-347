@@ -1,0 +1,17 @@
+
+apply plugin: 'com.bmuschko.docker-remote-api'
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    // include the plugin into buildscript classpath to be able to import API class
+    // com.bmuschko.gradle.docker.tasks.DockerVersion
+    classpath 'com.bmuschko:gradle-docker-plugin:3.0.5'
+  }
+}
+
+import com.bmuschko.gradle.docker.tasks.DockerVersion
+
+task version(type: DockerVersion) {}

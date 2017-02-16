@@ -1,0 +1,9 @@
+plugins {
+// this core plugin works with docker-remote-api
+    id 'base'
+    id 'com.bmuschko.docker-remote-api' version '3.0.5' apply false
+// activating any non core plugin will break the build
+    id 'org.asciidoctor.gradle.asciidoctor' version '1.5.1' apply false
+}
+
+apply from: 'include.gradle'
