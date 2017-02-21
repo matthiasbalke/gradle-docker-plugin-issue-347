@@ -1,7 +1,7 @@
 version: 2
 executorType: docker
 containerInfo:
-  - image: ubuntu:14.04
+  - image: openjdk:8-jdk
     cmd: ["/bin/bash"]
   - image: mongo:2.6.8
     cmd: [mongod, --smallfiles]
@@ -20,7 +20,7 @@ stages:
       - type: shell
         name: Install packages
         command: |
-          apt-get update -qq && apt-get install -qqy git curl openjdk-8-jdk
+          apt-get update -qq && apt-get install -qqy --no-install-recommends git curl
 
       - type: shell
         name: Install Docker Client
