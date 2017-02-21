@@ -12,6 +12,11 @@ stages:
       - type: checkout
 
       - type: shell
+        name: install git
+        shell: /bin/bash
+        command: apt-get install git -y
+
+      - type: shell
         name: Gradle build
         shell: /bin/bash
         command: gradlew --stacktrace --info --console=plain version
