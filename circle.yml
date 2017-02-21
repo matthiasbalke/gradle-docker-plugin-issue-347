@@ -20,7 +20,7 @@ stages:
       - type: shell
         name: Install packages
         command: |
-          apt-get update && apt-get install -y git curl
+          apt-get update -qq && apt-get install -qqy git curl openjdk-8-jdk
 
       - type: shell
         name: Install Docker Client
