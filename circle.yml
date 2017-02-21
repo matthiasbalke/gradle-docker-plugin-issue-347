@@ -1,14 +1,17 @@
-machine:
-  java:
-    version: oraclejdk8
+version: 2
+executorType: docker
+containerInfo:
+  - image: ubuntu:14.04
+    cmd: ["/bin/bash"]
+  - image: mongo:2.6.8
+    cmd: [mongod, --smallfiles]
+stages:
+  build:
+    workDir: ~/workdir
+    steps:
+      - type: checkout
 
-  services:
-    - docker
-
-dependencies:
-  override:
-    - ./gradlew --stacktrace --info --console=plain version
-
-test:
-  override:
-    - echo "Nothing to test"
+      - type: shell
+        name: Gradle build
+        shell: /bin/bash
+        command: gradlew --stacktrace --info --console=plain version
