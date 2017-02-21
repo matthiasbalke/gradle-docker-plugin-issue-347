@@ -44,7 +44,7 @@ stages:
       - type: shell
         name: get infos
         shell: /bin/bash
-        command: pwd && env && git --version && java -version && ls -al
+        command: pwd && env | sort && git --version && java -version && ls -al
 
       - type: shell
         name: Gradle build
