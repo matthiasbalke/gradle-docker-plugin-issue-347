@@ -49,4 +49,4 @@ stages:
       - type: shell
         name: Gradle build
         shell: /bin/bash
-        command: ./gradlew --stacktrace --info --console=plain version
+        command: ./gradlew --stacktrace --console=plain version

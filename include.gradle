@@ -13,14 +13,15 @@ buildscript {
   }
 }
 
-if (System.env.DOCKER_HOST) {
-    url = "$System.env.DOCKER_HOST".replace("tcp", "https")
-    if (System.env.DOCKER_CERT_PATH) {
-        certPath = new File(System.env.DOCKER_CERT_PATH)
-
-    }
-} else {
-    url = 'unix:///var/run/docker.sock'
+docker {
+  if (System.env.DOCKER_HOST) {
+      url = "$System.env.DOCKER_HOST".replace("tcp", "https")
+      if (System.env.DOCKER_CERT_PATH) {
+          certPath = new File(System.env.DOCKER_CERT_PATH)
+      }
+  } else {
+      url = 'unix:///var/run/docker.sock'
+  }
 }
 
 import com.bmuschko.gradle.docker.tasks.DockerVersion
