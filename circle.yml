@@ -15,7 +15,7 @@ stages:
       - type: shell
         name: get infos
         shell: /bin/bash
-        command: pwd && git --version && docker --version && java -version
+        command: pwd && git --version && java -version && ls -al
 
       - type: shell
         name: Gradle build
