@@ -9,12 +9,12 @@ stages:
   build:
     workDir: ~/workdir
     steps:
-      - type: checkout
-
       - type: shell
         name: install git
         shell: /bin/bash
         command: apt-get install git -y
+
+      - type: checkout
 
       - type: shell
         name: Gradle build
