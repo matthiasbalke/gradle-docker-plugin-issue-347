@@ -1,19 +1,15 @@
 version: 2
 executorType: docker
 containerInfo:
-  - image: ubuntu:14.04
+  - image: cloudbees/java-build-tools:2.0.0
     cmd: ["/bin/bash"]
   - image: mongo:2.6.8
     cmd: [mongod, --smallfiles]
+
 stages:
   build:
     workDir: ~/workdir
     steps:
-      - type: shell
-        name: install git
-        shell: /bin/bash
-        command: apt-get install git -y
-
       - type: checkout
 
       - type: shell
