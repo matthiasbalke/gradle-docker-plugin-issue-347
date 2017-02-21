@@ -38,14 +38,13 @@ stages:
         name: Verify Docker Works
         command: |
           docker --version
-          docker run hello-world
 
       - type: checkout
 
       - type: shell
         name: get infos
         shell: /bin/bash
-        command: pwd && git --version && java -version && ls -al
+        command: pwd && env && git --version && java -version && ls -al
 
       - type: shell
         name: Gradle build
