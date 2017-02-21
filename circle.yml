@@ -8,14 +8,14 @@ containerInfo:
 
 stages:
   build:
-    workDir: ~/workdir
+    workDir: /root/workDir
 
     steps:
       - type: shell
         name: Initialize Working Directory
         pwd: /
         command: |
-          mkdir ~/workDir
+          mkdir /root/workDir
 
       - type: shell
         name: Install packages
