@@ -7,6 +7,9 @@ containerInfo:
     cmd: [mongod, --smallfiles]
 
 stages:
+  build:
+    workDir: ~/workdir
+
     steps:
       - type: shell
         name: Install Docker Client
@@ -26,9 +29,6 @@ stages:
           docker --version
           docker run hello-world
 
-  build:
-    workDir: ~/workdir
-    steps:
       - type: checkout
 
       - type: shell
