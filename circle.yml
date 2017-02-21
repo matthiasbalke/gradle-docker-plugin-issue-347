@@ -1,12 +1,47 @@
 version: 2
 executorType: docker
 containerInfo:
-  - image: cloudbees/java-build-tools:2.0.0
+  - image: ubuntu:14.04
     cmd: ["/bin/bash"]
   - image: mongo:2.6.8
     cmd: [mongod, --smallfiles]
 
 stages:
+  prepare:
+    steps:
+      - type: shell
+        name: update apt package cache
+        shell: /bin/bash
+        command: sudo apt-get update
+
+      - type: shell
+        name: install packages
+        shell: /bin/bash
+        command: |
+          sudo apt-get install -y git --no-install-recommends
+          linux-image-extra-$(uname -r) linux-image-extra-virtual
+          apt-transport-https ca-certificates curl software-properties-common
+
+      - type: shell
+        name: add docker apt repo
+        shell: /bin/bash
+        command: curl -fsSL https://apt.dockerproject.org/gpg | sudo apt-key add -
+
+      - type: shell
+        name: add docker apt repo
+        shell: /bin/bash
+        command: sudo add-apt-repository "deb https://apt.dockerproject.org/repo/ ubuntu-$(lsb_release -cs) main"
+
+      - type: shell
+        name: update apt package cache
+        shell: /bin/bash
+        command: sudo apt-get update
+
+      - type: shell
+        name: install docker
+        shell: /bin/bash
+        command: sudo apt-get -y install docker-engine
+
   build:
     workDir: ~/workdir
     steps:
