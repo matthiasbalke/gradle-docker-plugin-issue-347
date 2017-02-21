@@ -20,7 +20,7 @@ stages:
       - type: shell
         name: Install packages
         command: |
-          apt-get update && apt-get install git -y
+          apt-get update && apt-get install -y git curl
 
       - type: shell
         name: Install Docker Client
@@ -28,10 +28,10 @@ stages:
           echo "test"
           curl -L -o /tmp/docker.tgz https://get.docker.com/builds/Linux/x86_64/docker-1.12.3.tgz
           tar -xz -C /tmp -f /tmp/docker.tgz
-          sudo mv /tmp/docker/docker* /usr/bin/
+          mv /tmp/docker/docker* /usr/bin/
 
-          sudo curl -L "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
-          sudo chmod +x  /usr/bin/docker-compose
+          curl -L "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
+          chmod +x  /usr/bin/docker-compose
 
       - type: setup-docker-engine
       - type: shell
