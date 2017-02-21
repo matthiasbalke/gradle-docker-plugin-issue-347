@@ -11,6 +11,8 @@ stages:
     workDir: ~/workdir
 
     steps:
+      - type: checkout
+
       - type: shell
         name: Install Docker Client
         command: |
@@ -28,8 +30,6 @@ stages:
         command: |
           docker --version
           docker run hello-world
-
-      - type: checkout
 
       - type: shell
         name: get infos
